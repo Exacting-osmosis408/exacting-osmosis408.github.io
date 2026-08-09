@@ -769,22 +769,67 @@
         </div>
     </div>
 </header>
-
-    <!-- Banner Principal -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>LA REVOLUCIÓN TECNOLÓGICA EN TUS MANOS.</h1>
-                <p>Explora las últimas innovaciones en laptops gaming, dispositivos de audio de alta fidelidad y gadgets inteligentes.</p>
-                <a href="#catalogo" class="btn-primary">
-                    EXPLORAR CATÁLOGO <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="hero-image">
-                <img src="https://png.pngtree.com/thumb_back/fh260/background/20260105/pngtree-gaming-setup-with-rgb-keyboard-and-neon-lights-on-dark-desk-image_20968711.webp" alt="NikoTech Gaming Setup">
+<!-- Banner Principal (Slider Automático) -->
+<section class="hero">
+    <div class="container hero-slider">
+        
+        <!-- Diapositiva 1 -->
+        <div class="slide active">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>LA REVOLUCIÓN TECNOLÓGICA EN TUS MANOS.</h1>
+                    <p>Explora las últimas innovaciones en laptops gaming, dispositivos de audio y gadgets inteligentes.</p>
+                    <a href="catalogo.html" class="btn-primary">
+                        EXPLORAR CATÁLOGO <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800" alt="Setup Gaming NikoTech">
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- Diapositiva 2 -->
+        <div class="slide">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1 style="color: var(--accent-cyan);">LAPTOPS GAMING DE ÚLTIMA GENERACIÓN.</h1>
+                    <p>Potencia pura con procesadores de alto rendimiento y pantallas OLED de 240Hz.</p>
+                    <a href="catalogo.html" class="btn-primary">
+                        VER LAPTOPS <i class="fa-solid fa-laptop"></i>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800" alt="Laptops Nikotech">
+                </div>
+            </div>
+        </div>
+
+        <!-- Diapositiva 3 -->
+        <div class="slide">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1 style="color: var(--accent-green);">SMARTWATCH CYBER-X EN DESCUENTO.</h1>
+                    <p>Aprovecha un 30% OFF en relojes inteligentes con monitoreo biométrico por IA.</p>
+                    <a href="ofertas.html" class="btn-primary">
+                        VER OFERTA <i class="fa-solid fa-tag"></i>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800" alt="Oferta Smartwatch">
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicadores (Puntos del Slider) -->
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+
+    </div>
+</section>
 
     <!-- Sección de Catálogo -->
     <section class="categories container" id="catalogo">
