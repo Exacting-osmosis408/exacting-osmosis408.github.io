@@ -342,3 +342,106 @@ footer {
     width: 28px;
     border-radius: 10px; /* Se expande como una píldora */
 }
+/* =========================================================
+   ESTILOS PARA MENÚ HAMBURGUESA Y BUSCADOR MÓVIL
+   ========================================================= */
+
+/* Botón de 3 líneas oculto en pantallas grandes */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent-cyan);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Ajustes específicos para Celulares */
+@media (max-width: 768px) {
+    /* 1. Menú Hamburguesa en pantalla completa/desplegable */
+    .mobile-menu-btn {
+        display: block; /* Muestra las 3 líneas */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 11, 20, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border-glow);
+        padding: 20px 0;
+        gap: 18px;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    /* Clase que se activa al tocar las 3 líneas */
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    /* 2. Buscador ultra compacto (Solo la Lupita) */
+    .search-box {
+        position: relative;
+        width: 38px;
+        height: 38px;
+    }
+
+    .search-box i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--accent-cyan);
+        font-size: 16px;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .search-box input {
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 50%;
+        background: rgba(0, 242, 254, 0.1);
+        border: 1px solid var(--accent-cyan);
+        color: transparent; /* Oculta el texto mientras está cerrado */
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    /* Al tocar la lupita, se despliega la barra para escribir */
+    .search-box input:focus {
+        width: 170px;
+        border-radius: 20px;
+        padding: 8px 12px 8px 32px;
+        color: #fff;
+        background: #0c162c;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    .brand-logo {
+        font-size: 17px; /* Tamaño adaptado para iPhone 16 Pro Max */
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+}
