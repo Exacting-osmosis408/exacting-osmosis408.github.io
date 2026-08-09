@@ -745,10 +745,6 @@
                 gap: 5px;
             }
 
-            .nav-links {
-                display: none; /* Mantenemos el menú oculto */
-            }
-
             /* 2. Solución para el Buscador Cortado */
             .header-actions {
                 gap: 10px; /* Reducimos el espacio entre buscador y carrito */
@@ -1259,7 +1255,6 @@ startTimer();
         // Carga Inicial
         renderProducts(products);
 
-}
 function toggleMobileMenu() {
     // Busca el menú por ID o por su clase para asegurar que lo encuentre
     const navLinks = document.getElementById('navLinks') || document.querySelector('.nav-links');
