@@ -261,58 +261,59 @@ header {
    ========================================================= */
 .search-box {
   position: relative;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
-  height: 40px;
 }
-
-/* El input inicia oculto (ancho 0) */
-.search-input {
-  width: 0;
-  height: 40px;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: transparent;
+.search-box i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent-cyan);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent-cyan);
+  border-radius: 50%;
+  background: rgba(0, 242, 254, 0.1);
+  transition: 0.3s;
+}
+.search-box i:hover {
+  background: var(--accent-cyan);
+  color: #000;
+}
+.search-box input {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0c162c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
   color: #fff;
   font-size: 14px;
-  border-radius: 20px;
-  transition: all 0.4s ease;
+  outline: none;
+  transition: 0.3s;
+  width: 0;
   opacity: 0;
+  pointer-events: none;
+  z-index: 1;
 }
-
-/* Botón con la lupita dentro de un círculo */
-.search-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--accent-cyan, #00f2fe);
-  background: transparent;
-  color: var(--accent-cyan, #00f2fe);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  z-index: 2;
-}
-
-/* Al pasar el mouse o al hacer clic dentro, la barra se expande */
-.search-box:hover .search-input,
-.search-box:focus-within .search-input {
-  width: 180px;
-  padding: 0 15px 0 45px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--accent-cyan, #00f2fe);
+.search-box.active input {
+  width: 200px;
   opacity: 1;
-}
-
-/* Ajusta el icono al expandir */
-.search-box:hover .search-btn,
-.search-box:focus-within .search-btn {
-  position: absolute;
-  left: 0;
-  border: none;
+  pointer-events: auto;
+  padding-right: 50px;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
 }
 .cart-btn {
   background: rgba(0, 242, 254, 0.1);
