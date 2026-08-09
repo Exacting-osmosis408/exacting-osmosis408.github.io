@@ -256,32 +256,61 @@ header {
   align-items: center;
   gap: 18px;
 }
+/* =========================================================
+   BUSCADOR COMPACTO (LUPITA DESPLEGABLE GLOBAL)
+   ========================================================= */
 .search-box {
-  position: relative;
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Mantiene la expansión hacia la izquierda */
 }
-.search-box input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 16px 8px 36px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 14px;
-  outline: none;
-  transition: 0.3s;
-  width: 180px;
-}
-.search-box input:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-  width: 220px;
-}
+
+/* Icono de la lupita */
 .search-box i {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-  font-size: 14px;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-cyan);
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Input colapsado como botón circular */
+.search-box input {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid var(--accent-cyan);
+    color: transparent; /* Oculta el texto de placeholder mientras está cerrado */
+    cursor: pointer;
+    outline: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    right: 0;
+}
+
+/* Efecto Hover */
+.search-box input:hover {
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+}
+
+/* Al hacer clic (Focus): la barra se despliega */
+.search-box input:focus {
+    width: 220px; /* Ancho expandido para escribir */
+    border-radius: 20px;
+    padding: 8px 38px 8px 16px; /* Espacio interno para que el texto no toque la lupita */
+    color: #ffffff;
+    background: #0c162c;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+    cursor: text;
 }
 .cart-btn {
   background: rgba(0, 242, 254, 0.1);
