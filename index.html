@@ -792,30 +792,41 @@
 <body>
     
     <!-- Header & Navegación -->
+<!-- Header & Navegación Responsiva -->
 <header>
     <div class="container nav-container">
+        <!-- Logo -->
         <a href="index.html" class="brand-logo">
             <i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i>
             <span style="color: #fff;">Nikotech<span style="color: var(--accent-cyan); text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);">solutions</span></span>
         </a>
 
-        <!-- Enlaces del Menú apuntando a los archivos independientes -->
-        <ul class="nav-links">
+        <!-- Enlaces del Menú -->
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="catalogo.html">Catálogo</a></li>
             <li><a href="ofertas.html">Ofertas</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
 
+        <!-- Acciones del Header -->
         <div class="header-actions">
+            <!-- Buscador (Lupita) -->
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="filterProducts()">
             </div>
+
+            <!-- Carrito -->
             <div class="cart-btn" onclick="toggleCart()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <div class="cart-count" id="cartCount">0</div>
             </div>
+
+            <!-- Botón Menú Hamburguesa (3 Líneas) -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </div>
 </header>
