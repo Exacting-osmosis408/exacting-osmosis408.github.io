@@ -232,3 +232,70 @@ footer {
     .brand-logo { font-size: 18px; }
     .page-header h1 { font-size: 30px; }
 }
+
+/* =========================================================
+   ANIMACIONES PARA EL BANNER PRINCIPAL (HERO)
+   ========================================================= */
+
+/* 1. Definición de fotogramas clave (Keyframes) */
+
+/* Entrada suave desde abajo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto levitación flotante */
+@keyframes floatImage {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
+    }
+    50% {
+        transform: translateY(-15px);
+        box-shadow: 0 0 50px rgba(0, 242, 254, 0.5); /* Aumenta el resplandor neón al subir */
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
+    }
+}
+
+/* Pulso de luz neón para el botón */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 242, 254, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    }
+}
+
+/* 2. Aplicación de animaciones a los elementos */
+
+.hero-text h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-text p {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards; /* Retardo de 0.2s */
+    opacity: 0; /* Oculto hasta que inicia la animación */
+}
+
+.hero-text .btn-primary {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards, neonPulse 2.5s infinite 1.2s; /* Se combina con el pulso continuo */
+    opacity: 0;
+}
+
+.hero-image img {
+    animation: floatImage 4s ease-in-out infinite; /* Flota de manera continua infinitamente */
+}
