@@ -260,57 +260,59 @@ header {
    BUSCADOR COMPACTO (LUPITA DESPLEGABLE GLOBAL)
    ========================================================= */
 .search-box {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Mantiene la expansión hacia la izquierda */
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 
-/* Icono de la lupita */
-.search-box i {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--accent-cyan);
-    font-size: 16px;
-    pointer-events: none;
-    z-index: 2;
-    transition: all 0.3s ease;
+/* El input inicia oculto (ancho 0) */
+.search-input {
+  width: 0;
+  height: 40px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  opacity: 0;
 }
 
-/* Input colapsado como botón circular */
-.search-box input {
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    border-radius: 50%;
-    background: rgba(0, 242, 254, 0.1);
-    border: 1px solid var(--accent-cyan);
-    color: transparent; /* Oculta el texto de placeholder mientras está cerrado */
-    cursor: pointer;
-    outline: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: absolute;
-    right: 0;
+/* Botón con la lupita dentro de un círculo */
+.search-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-cyan, #00f2fe);
+  background: transparent;
+  color: var(--accent-cyan, #00f2fe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  z-index: 2;
 }
 
-/* Efecto Hover */
-.search-box input:hover {
-    box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+/* Al pasar el mouse o al hacer clic dentro, la barra se expande */
+.search-box:hover .search-input,
+.search-box:focus-within .search-input {
+  width: 180px;
+  padding: 0 15px 0 45px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent-cyan, #00f2fe);
+  opacity: 1;
 }
 
-/* Al hacer clic (Focus): la barra se despliega */
-.search-box input:focus {
-    width: 220px; /* Ancho expandido para escribir */
-    border-radius: 20px;
-    padding: 8px 38px 8px 16px; /* Espacio interno para que el texto no toque la lupita */
-    color: #ffffff;
-    background: #0c162c;
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
-    cursor: text;
+/* Ajusta el icono al expandir */
+.search-box:hover .search-btn,
+.search-box:focus-within .search-btn {
+  position: absolute;
+  left: 0;
+  border: none;
 }
 .cart-btn {
   background: rgba(0, 242, 254, 0.1);
