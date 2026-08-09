@@ -1,5 +1,944 @@
-Mi Sitio en GitHub
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NikoTechSolution | Tienda de Tecnología & Gaming</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* =========================================================
+           1. ESTILOS GENERALES Y VARIABLES DE COLOR CYBERPUNK
+           ========================================================= */
+        :root {
+            --bg-dark: #050b14;
+            --bg-card: #0c162c;
+            --bg-card-hover: #12203f;
+            --accent-cyan: #00f2fe;
+            --accent-green: #10b981;
+            --accent-purple: #a855f7;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 242, 254, 0.25);
+            --border-glow-hover: rgba(0, 242, 254, 0.8);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-    ¡Hola Mundo!
-    Mi sitio web está subido y alojado en GitHub Pages gratis.
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-logo {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================================
+           2. NAVEGACIÓN Y HEADER
+           ========================================================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo span {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px 8px 36px;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+            width: 180px;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+            width: 220px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .cart-btn {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--accent-green);
+            color: #000;
+            font-size: 11px;
+            font-weight: 800;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* =========================================================
+           3. BANNER PRINCIPAL (HERO SECTION)
+           ========================================================= */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 60%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ffffff 40%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, var(--accent-cyan), #00a8ff);
+            color: #000;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 20px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
+            object-fit: cover;
+        }
+
+        /* =========================================================
+           4. CATEGORÍAS & FILTROS
+           ========================================================= */
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-cyan);
+            margin: 10px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .categories {
+            padding: 40px 0;
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 10px 22px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: rgba(0, 242, 254, 0.15);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+        }
+
+        /* =========================================================
+           5. GRILLA DE PRODUCTOS
+           ========================================================= */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+            padding-bottom: 80px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow-hover);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.25);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            background: #081020;
+        }
+
+        .product-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .product-rating {
+            color: #f59e0b;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+
+        .add-cart-btn {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .add-cart-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+        }
+
+        /* =========================================================
+           6. OFERTA DEL DÍA CON CONTADOR
+           ========================================================= */
+        .deal-banner {
+            background: linear-gradient(135deg, #09152e 0%, #050b14 100%);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .deal-info h3 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .time-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-glow);
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .time-box span {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent-green);
+            display: block;
+        }
+
+        .time-box label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           7. MODAL DEL CARRITO DE COMPRAS
+           ========================================================= */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 400px;
+            height: 100vh;
+            background: #091326;
+            border-left: 1px solid var(--accent-cyan);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        .cart-modal.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .cart-item-price {
+            font-size: 13px;
+            color: var(--accent-cyan);
+        }
+
+        .remove-item {
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebc57;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* =========================================================
+           8. FOOTER
+           ========================================================= */
+        footer {
+            background: #03070d;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 50px 0 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about p {
+            margin-top: 12px;
+            max-width: 320px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navegación -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i>
+                nikotech<span>solution</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar producto..." onkeyup="filterProducts()">
+                </div>
+                <div class="cart-btn" onclick="toggleCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="cart-count" id="cartCount">0</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>LA REVOLUCIÓN TECNOLÓGICA EN TUS MANOS.</h1>
+                <p>Explora las últimas innovaciones en laptops gaming, dispositivos de audio de alta fidelidad y gadgets inteligentes.</p>
+                <a href="#catalogo" class="btn-primary">
+                    EXPLORAR CATÁLOGO <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="https://png.pngtree.com/thumb_back/fh260/background/20260105/pngtree-gaming-setup-with-rgb-keyboard-and-neon-lights-on-dark-desk-image_20968711.webp" alt="NikoTech Gaming Setup">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Catálogo -->
+    <section class="categories container" id="catalogo">
+        <h2 class="section-title">Nuestros Productos</h2>
+
+        <!-- Filtros -->
+        <div class="category-filters">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">Todos</button>
+            <button class="filter-btn" onclick="filterCategory('laptops', this)">Laptops</button>
+            <button class="filter-btn" onclick="filterCategory('audio', this)">Audio</button>
+            <button class="filter-btn" onclick="filterCategory('smarthome', this)">Smart Home</button>
+        </div>
+
+        <!-- Grilla de Productos -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Los productos se cargan dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Oferta del Día -->
+    <section class="container" id="ofertas">
+        <div class="deal-banner">
+            <div class="deal-info">
+                <span style="color: var(--accent-green); font-weight: 700; font-size: 14px;">OFERTA LIMITADA</span>
+                <h3>Smartwatch Pro Cyber-X</h3>
+                <p style="color: var(--text-muted);">Monitoreo de salud AI, pantalla AMOLED y resistencia al agua 50m.</p>
+                <div class="countdown">
+                    <div class="time-box"><span id="hours">07</span><label>Horas</label></div>
+                    <div class="time-box"><span id="minutes">45</span><label>Min</label></div>
+                    <div class="time-box"><span id="seconds">12</span><label>Seg</label></div>
+                </div>
+            </div>
+            <div>
+                <button class="btn-primary" onclick="addToCart(4)">
+                    COMPRAR AHORA ($79.90)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer (Carrito) -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items del carrito -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal" style="color: var(--accent-cyan);">$0.00</span>
+            </div>
+            <button class="btn-whatsapp" onclick="checkoutWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="#" class="brand-logo">
+                    <i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i>
+                    nikotech<span>solution</span>
+                </a>
+                <p>Tu tienda de confianza para productos tecnológicos de alta calidad con envíos rápidos y garantía extendida.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="color: #fff; margin-bottom: 15px;">Enlaces</h4>
+                <p><a href="#" style="color: var(--text-muted); text-decoration: none;">Garantías</a></p>
+                <p><a href="#" style="color: var(--text-muted); text-decoration: none;">Métodos de Pago</a></p>
+                <p><a href="#" style="color: var(--text-muted); text-decoration: none;">Términos y Condiciones</a></p>
+            </div>
+            <div>
+                <h4 style="color: #fff; margin-bottom: 15px;">Contacto</h4>
+                <p><i class="fa-solid fa-envelope"></i> ventas@nikotechsolution.com</p>
+                <p><i class="fa-solid fa-phone"></i> +57 300 000 0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 NikoTechSolution. Todos los derechos reservados. Alojadado en GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- Script Principal -->
+    <script>
+        /* =========================================================
+           LISTA DE PRODUCTOS (FÁCIL DE EDITAR O CAMBIAR IMÁGENES)
+           ========================================================= */
+        const products = [
+            {
+                id: 1,
+                title: "Audífonos Gamer Aura Pro",
+                category: "audio",
+                price: 173.90,
+                badge: "Más Vendido",
+                rating: 5,
+                image: "https://www.cubed3.com/wp-content/uploads/2026/03/hyperx-cloud-flight-2-wireless-gaming-headset-audio-screenshot-art-1.jpg"
+            },
+            {
+                id: 2,
+                title: "Laptop ZenBook Nova 14",
+                category: "laptops",
+                price: 899.00,
+                badge: "OLED 2.8K",
+                rating: 5,
+                image: "https://png.pngtree.com/thumb_back/fh260/background/20260105/pngtree-gaming-setup-with-rgb-keyboard-and-neon-lights-on-dark-desk-image_20968711.webp"
+            },
+            {
+                id: 3,
+                title: "Smart Speaker Voice-AI",
+                category: "smarthome",
+                price: 119.90,
+                badge: "Novedad",
+                rating: 4,
+                image: "https://asset.conrad.com/media10/isa/160267/c1/-/en/003014027PI04/image.jpg?x=400&y=400&format=jpg&ex=400&ey=400&align=center"
+            },
+            {
+                id: 4,
+                title: "Smartwatch Pro Cyber-X",
+                category: "smarthome",
+                price: 79.90,
+                badge: "Oferta",
+                rating: 5,
+                image: "https://asset.conrad.com/media10/isa/160267/c1/-/en/003014027PI04/image.jpg?x=400&y=400&format=jpg&ex=400&ey=400&align=center"
+            }
+        ];
+
+        let cart = [];
+
+        // Renderizar Productos en la Tienda
+        function renderProducts(items) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            items.forEach(product => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <span class="product-badge">${product.badge}</span>
+                        <img src="${product.image}" alt="${product.title}" class="product-img">
+                        <div>
+                            <div class="product-rating">${'★'.repeat(product.rating)}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                        </div>
+                        <div class="product-bottom">
+                            <span class="product-price">$${product.price.toFixed(2)}</span>
+                            <button class="add-cart-btn" onclick="addToCart(${product.id})">
+                                <i class="fa-solid fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filtrar por Categoría
+        function filterCategory(category, btnElement) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Búsqueda en tiempo real
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.title.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Lógica del Carrito
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            const container = document.getElementById('cartItems');
+            container.innerHTML = '';
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                        </div>
+                        <i class="fa-solid fa-trash remove-item" onclick="removeFromCart(${index})"></i>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cartTotal').innerText = `$${total.toFixed(2)}`;
+        }
+
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.add('open');
+            } else {
+                modal.classList.toggle('open');
+            }
+        }
+
+        // Envío de Pedido a WhatsApp
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+
+            // Cambia este número por tu número real de WhatsApp con código de país (ej: 573001234567)
+            const phoneNumber = "573000000000"; 
+            
+            let message = "¡Hola NikotechSolution! Quisiera realizar el siguiente pedido:\n\n";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+                message += `${i + 1}. ${item.title} - $${item.price.toFixed(2)}\n`;
+                total += item.price;
+            });
+
+            message += `\n*Total a pagar: $${total.toFixed(2)}*`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Carga Inicial
+        renderProducts(products);
+    </script>
+</body>
+</html>
