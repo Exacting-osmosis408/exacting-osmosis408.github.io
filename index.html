@@ -1191,6 +1191,23 @@ startTimer();
 
         // Carga Inicial
         renderProducts(products);
+
+        // Función para abrir/cerrar el menú desplegable en móviles
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const menuBtnIcon = document.querySelector('#mobileMenuBtn i');
+    
+    navLinks.classList.toggle('active');
+
+    // Cambia el icono de las 3 líneas (bars) a una "X" (xmark) al abrir
+    if (navLinks.classList.contains('active')) {
+        menuBtnIcon.classList.remove('fa-bars');
+        menuBtnIcon.classList.add('fa-xmark');
+    } else {
+        menuBtnIcon.classList.remove('fa-xmark');
+        menuBtnIcon.classList.add('fa-bars');
+    }
+}
     </script>
 </body>
 </html>
