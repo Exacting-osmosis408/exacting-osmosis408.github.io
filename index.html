@@ -36,12 +36,10 @@
         <!-- Acciones del Header -->
         <div class="header-actions">
             <!-- Buscador (Lupita) -->
-            <div class="search-box">
-                  <button class="search-btn" type="button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                  <input type="text" class="search-input" placeholder="Buscar...">
-                </div>
+            <div class="search-box" id="searchBox">
+                <i class="fa-solid fa-magnifying-glass" onclick="toggleSearch()"></i>
+                <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="filterProducts()">
+            </div>
 
             <!-- Carrito -->
             <div class="cart-btn" onclick="toggleCart()">
@@ -417,6 +415,14 @@ startTimer();
 
         // Carga Inicial
         renderProducts(products);
+        
+function toggleSearch() {
+    const searchBox = document.getElementById('searchBox');
+    searchBox.classList.toggle('active');
+    if (searchBox.classList.contains('active')) {
+        document.getElementById('searchInput').focus();
+    }
+}
 
 function toggleMobileMenu() {
     // Busca el menú por ID o por su clase para asegurar que lo encuentre
