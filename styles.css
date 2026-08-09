@@ -343,27 +343,29 @@ footer {
     border-radius: 10px; /* Se expande como una píldora */
 }
 /* =========================================================
-   ESTILOS PARA MENÚ HAMBURGUESA Y BUSCADOR MÓVIL
+   MENÚ HAMBURGUESA RESPONSIVO (SOLO CELULARES)
    ========================================================= */
 
-/* Botón de 3 líneas oculto en pantallas grandes */
+/* Ocultar el botón de 3 líneas EN COMPUTADORES (pantallas grandes) */
 .mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--accent-cyan);
-    font-size: 22px;
-    cursor: pointer;
-    padding: 5px;
+    display: none !important; 
 }
 
-/* Ajustes específicos para Celulares */
+/* Reglas aplicables SOLO a pantallas de celular/tablet (Menos de 768px) */
 @media (max-width: 768px) {
-    /* 1. Menú Hamburguesa en pantalla completa/desplegable */
+
+    /* Mostrar el botón de 3 líneas únicamente en móviles */
     .mobile-menu-btn {
-        display: block; /* Muestra las 3 líneas */
+        display: block !important;
+        background: none;
+        border: none;
+        color: var(--accent-cyan);
+        font-size: 22px;
+        cursor: pointer;
+        padding: 5px;
     }
 
+    /* Ocultar el menú horizontal estándar */
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -371,22 +373,23 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(5, 11, 20, 0.95);
+        background: rgba(5, 11, 20, 0.98);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--border-glow);
         padding: 20px 0;
         gap: 18px;
         text-align: center;
         opacity: 0;
-        pointer-events: none;
+        visibility: hidden; /* Oculta el menú cuando no está activo */
         transform: translateY(-10px);
         transition: all 0.3s ease;
+        z-index: 999;
     }
 
-    /* Clase que se activa al tocar las 3 líneas */
+    /* Mostrar el menú desplegable cuando se hace clic */
     .nav-links.active {
         opacity: 1;
-        pointer-events: auto;
+        visibility: visible;
         transform: translateY(0);
     }
 
@@ -394,7 +397,7 @@ footer {
         font-size: 18px;
     }
 
-    /* 2. Buscador ultra compacto (Solo la Lupita) */
+    /* Buscador compacto tipo Lupita */
     .search-box {
         position: relative;
         width: 38px;
@@ -419,14 +422,13 @@ footer {
         border-radius: 50%;
         background: rgba(0, 242, 254, 0.1);
         border: 1px solid var(--accent-cyan);
-        color: transparent; /* Oculta el texto mientras está cerrado */
+        color: transparent;
         cursor: pointer;
         transition: all 0.3s ease;
     }
 
-    /* Al tocar la lupita, se despliega la barra para escribir */
     .search-box input:focus {
-        width: 170px;
+        width: 160px;
         border-radius: 20px;
         padding: 8px 12px 8px 32px;
         color: #fff;
@@ -435,13 +437,5 @@ footer {
         right: 0;
         top: 0;
         z-index: 1;
-    }
-
-    .brand-logo {
-        font-size: 17px; /* Tamaño adaptado para iPhone 16 Pro Max */
-    }
-
-    .header-actions {
-        gap: 10px;
     }
 }
