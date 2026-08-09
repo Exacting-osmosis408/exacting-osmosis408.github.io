@@ -354,26 +354,53 @@
         /* =========================================================
            5. GRILLA DE PRODUCTOS
            ========================================================= */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 28px;
-            padding-bottom: 80px;
-        }
+        /* =========================================================
+   GRILLA DE PRODUCTOS CORREGIDA (MULTICOLUMNA EN COMPUTADOR)
+   ========================================================= */
 
-        .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glow);
-            border-radius: 16px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
+.products-grid {
+    display: grid;
+    /* Crea varias columnas de mínimo 260px automáticamente */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+    width: 100%;
+    padding: 30px 0 60px;
+    box-sizing: border-box;
+}
 
+.product-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glow);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%; /* Evita que la tarjeta se extienda de más */
+}
+
+/* Forzar 3 o 4 columnas claras en pantallas de computador */
+@media (min-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila en PC */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila en Laptop/Tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* 1 o 2 en Móvil */
+        gap: 16px;
+    }
+}
         .product-card:hover {
             transform: translateY(-6px);
             background: var(--bg-card-hover);
