@@ -367,23 +367,43 @@ footer {
 
     /* Ocultar el menú horizontal estándar */
     .nav-links {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed; /* 'fixed' evita problemas con el scroll */
+        top: 60px; /* Se despliega justo debajo del header */
         left: 0;
         width: 100%;
         background: rgba(5, 11, 20, 0.98);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--border-glow);
-        padding: 20px 0;
-        gap: 18px;
+        padding: 25px 0;
+        gap: 20px;
         text-align: center;
+        
+        /* Estado Oculto por defecto */
         opacity: 0;
-        visibility: hidden; /* Oculta el menú cuando no está activo */
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        z-index: 999;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-15px);
+        transition: all 0.3s ease-in-out;
+        z-index: 9999; /* Asegura que quede por encima de las imágenes del banner */
+    }
+
+    /* Estado Activo al hacer clic */
+    .nav-links.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+        color: #fff;
+        display: block;
+        padding: 8px 0;
+    }
+}
     }
 
     /* Mostrar el menú desplegable cuando se hace clic */
