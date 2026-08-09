@@ -1014,8 +1014,8 @@
     <!-- Script Principal -->
     <script>
         /* =========================================================
-   LÓGICA DEL CARRUSEL / SLIDER AUTOMÁTICO
-   ========================================================= */
+             LÓGICA DEL CARRUSEL / SLIDER AUTOMÁTICO
+           ========================================================= */
 let currentSlideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
@@ -1219,20 +1219,27 @@ startTimer();
         // Carga Inicial
         renderProducts(products);
 
-        // Función para abrir/cerrar el menú desplegable en móviles
+}
 function toggleMobileMenu() {
-    const navLinks = document.getElementById('navLinks');
+    // Busca el menú por ID o por su clase para asegurar que lo encuentre
+    const navLinks = document.getElementById('navLinks') || document.querySelector('.nav-links');
     const menuBtnIcon = document.querySelector('.mobile-menu-btn i');
     
-    navLinks.classList.toggle('active');
+    if (navLinks) {
+        navLinks.classList.toggle('active');
 
-    // Cambia el icono de las 3 líneas (bars) a una "X" (xmark) al abrir
-    if (navLinks.classList.contains('active')) {
-        menuBtnIcon.classList.remove('fa-bars');
-        menuBtnIcon.classList.add('fa-xmark');
-    } else {
-        menuBtnIcon.classList.remove('fa-xmark');
-        menuBtnIcon.classList.add('fa-bars');
+        // Cambia el icono entre las 3 líneas y la 'X'
+        if (navLinks.classList.contains('active')) {
+            if (menuBtnIcon) {
+                menuBtnIcon.classList.remove('fa-bars');
+                menuBtnIcon.classList.add('fa-xmark');
+            }
+        } else {
+            if (menuBtnIcon) {
+                menuBtnIcon.classList.remove('fa-xmark');
+                menuBtnIcon.classList.add('fa-bars');
+            }
+        }
     }
 }
     </script>
