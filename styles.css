@@ -299,3 +299,46 @@ footer {
 .hero-image img {
     animation: floatImage 4s ease-in-out infinite; /* Flota de manera continua infinitamente */
 }
+/* =========================================================
+   ESTILOS PARA EL SLIDER AUTOMÁTICO DE HERO
+   ========================================================= */
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Indicadores de navegación (Puntos) */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active, .dot:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+    width: 28px;
+    border-radius: 10px; /* Se expande como una píldora */
+}
